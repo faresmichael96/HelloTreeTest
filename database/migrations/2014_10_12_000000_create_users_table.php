@@ -24,11 +24,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-
-        /*Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_type_id')->unsigned()->index()->after('id');
-            $table->foreign('user_type_id')->references('id')->on('user_types')->onUpdate('cascade')->onDelete('cascade');
-        });*/
     }
 
     /**
