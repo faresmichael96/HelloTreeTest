@@ -1,0 +1,280 @@
+@font-face {
+    font-family: 'MontserratRegular';
+    src: url('/assets/css/fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MontserratBold';
+    src: url('/assets/css/fonts/Montserrat-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MontserratMedium';
+    src: url('/assets/css/fonts/Montserrat-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MontserratLight';
+    src: url('/assets/css/fonts/Montserrat-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body{
+    font-family: 'MontserratRegular', Arial, sans-serif !important;
+}
+.border_radius{
+    border-radius: 15px
+}
+.description h1{
+    font-size: 60px;
+}
+.description p{
+    font-size: 30px;
+}
+.description h1, .description p{
+    font-family: 'MontserratLight', Arial, sans-serif;
+}
+.border-radius-width-25{
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px
+}
+.form_padding{
+    padding: 70px 60px !important;
+}
+button.close{
+    display: flex;
+    color: #75918C;
+    font-size: 35px;
+    background-color: #EFF0F0;
+    float: none;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    outline: none;
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: 1;
+}
+button.close img{
+    display: block;
+    margin: auto;
+}
+input{
+    outline: none;
+}
+*:focus {
+    outline: 0;
+    box-shadow: none !important;
+    border-color: #ced4da !important;
+}
+.close:focus, .close:hover{
+    background-color: #EFF0F0;
+    opacity: 1;
+    color: inherit;
+}
+.form_switch{
+    display: inline-flex;
+    border: 1px solid #EFF0F0;
+    margin-bottom: 43px;
+}
+.form_switch .switch_buttons{
+    font-family: 'MontserratMedium', Arial, sans-serif;
+    font-size: 25px;
+    color: #1F6A5D;
+    border: none;
+    outline: none;
+    padding: 15px 40px;
+    cursor: pointer;
+    transition: .35s all;
+    -webkit-transition: .35s all;
+}
+.form_switch .switch_buttons.active{
+    background-color: #1F6A5D !important;
+    color: white;
+}
+.form_wrapper{
+    display: none;
+}
+.form_wrapper.active{
+    display: block !important;
+}
+.form-group{
+    position: relative;
+    margin-bottom: 25px;
+}
+.form-group input[type=text], .form-group input[type=password], .form-group input[type=email]{
+    font-family: 'MontserratMedium', Arial, sans-serif;
+    font-size: 20px;
+    color: #75918C;
+    padding: 15px 35px;
+    background-color: #EFF0F0;
+}
+.form-group input::placeholder{
+    font-family: 'MontserratMedium', Arial, sans-serif;
+    font-size: 20px;
+    color: #75918C;
+}
+.form-group input[type=checkbox]{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #75918C;
+    background-color: transparent;
+}
+.custom-checkbox .custom-control-label::before{
+    background-color: transparent !important;
+    border: 1px solid #75918C;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after{
+    background-color: #75918C !important;
+    border-radius: 5px;
+}
+.custom-control-label.custom-checkbox::before{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #DFE3E3;
+    background-color: transparent !important;
+    border-radius: 7px !important;
+}
+.custom-radio .custom-control-label::before{
+    width: 25px;
+    height: 25px;
+    background-color: transparent !important;
+    border: 1px solid #DFE3E3;
+}
+.custom-radio .custom-control-input.active~.custom-control-label::after{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #1F6A5D;
+    top: 9px;
+    left: 5px;
+}
+.custom-radio .custom-control-input:checked~.custom-control-label::after{
+    background-image: none; !important;
+}
+.custom-radio .custom-control-input.active~.custom-control-label{
+    color: black;
+}
+.form-group i.toggle_password{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #1F6A5D;
+    cursor: pointer;
+}
+.form-group.forget_password a{
+    font-family: 'MontserratMedium', Arial, sans-serif;
+    font-size: 20px;
+    color: #ACACAC;
+}
+.form-group .login_btn{
+    font-family: 'MontserratBold', Arial, sans-serif;
+    font-size: 20px;
+    background-color: #ED6257;
+    display: flex;
+    padding: 15px 35px;
+    text-decoration: none;
+}
+.form-group .right_arrow{
+    font-size: 20px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: white;
+    cursor: pointer;
+}
+.sm_account{
+    margin-top: 65px;
+}
+.sm_account h2{
+    font-family: 'MontserratMedium', Arial, sans-serif;
+    font-size: 20px;
+    color: #1F6A5D;
+    margin-bottom: 25px;
+}
+.sm_account .sm_account_link{
+    display: flex;
+    font-family: 'MontserratMedium', Arial, sans-serif;
+    font-size: 20px;
+    margin-bottom: 25px;
+    padding: 15px 35px;
+    text-decoration: none;
+}
+#facebook_link{
+    background-color: #3C5A9A;
+}
+#google_link{
+    background-color: #34A853;
+}
+.user_type h2{
+    font-family: 'MontserratMedium', Arial, sans-serif;
+    font-size: 20px;
+}
+.user_type label{
+    font-family: 'MontserratMedium', Arial, sans-serif;
+    font-size: 20px;
+    color: #747E7C;
+}
+.user_type .details{
+    font-family: 'MontserratMedium', Arial, sans-serif;
+    font-size: 12px;
+    color: #75918C;
+}
+.user_type .details:hover{
+    text-decoration: none;
+}
+.user_type .details span{
+    background-color: #1F6A5D;
+    font-size: 11px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    text-align: center;
+}
+.user_type .wrapper .custom-control{
+    padding-left: 2rem;
+}
+.terms_conditions{
+    font-family: 'MontserratMedium', Arial, sans-serif;
+    font-size: 17px;
+    color: #75918C;
+}
+.terms_conditions a{
+    color: #1F6A5D;
+}
+.terms_conditions a:hover{
+    text-decoration: none;
+}
+.form-group.company{
+    display: none;
+    visibility: hidden;
+}
+.form-group.company.active{
+    display: block;
+    visibility: visible;
+}
+.tooltip-inner{
+    bottom: -310px;
+    background-color: white;
+    z-index: 1;
+    padding: 35px;
+    text-align: initial;
+}
+.tooltip-inner h3{
+    font-family: 'MontserratMedium', Arial, sans-serif;
+    font-size: 20px;
+    color: #1F6A5D;
+}
+.tooltip-inner p{
+    font-family: 'MontserratMedium', Arial, sans-serif;
+    font-size: 18px;
+    color: #6A7774;
+}
