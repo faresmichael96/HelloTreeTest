@@ -25,10 +25,10 @@
                     <form id="login_form" method="post" action="/login">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <input type="email" class="form-control border_radius" placeholder="Email address" id="login_email" name="email">
+                            <input type="email" class="form-control border_radius" placeholder="Email address" id="login_email" name="email" required>
                         </div>
                         <div class="form-group mb-3">
-                            <input type="password" class="form-control border_radius" placeholder="Password" id="login_password" name="password">
+                            <input type="password" class="form-control border_radius" placeholder="Password" id="login_password" name="password" required>
                             <i class="bi bi-eye-slash-fill toggle_password"></i>
                         </div>
                         @if(Session::has('login_error'))
@@ -45,9 +45,12 @@
                     <div class="sm_account">
                         <h2>Or sign in using</h2>
                         <div class="actions">
-                            <a href="#" class="sm_account_link border_radius text-white" id="facebook_link"><img src="/assets/images/facebook_icon.png" class="mr-4" width="13px" height="auto" alt="Facebook"/> Facebook</a>
-                            <a href="#" class="sm_account_link border_radius mb-0 text-white" id="google_link"><img src="/assets/images/google_icon.png" class="mr-4" width="24px" height="25px" alt="Google"/> Google</a>
+                            <a href="{{route('social.oauth', 'facebook')}}" class="sm_account_link border_radius text-white" id="facebook_link"><img src="/assets/images/facebook_icon.png" class="mr-4" width="13px" height="auto" alt="Facebook"/> Facebook</a>
+                            <a href="{{route('social.oauth', 'google')}}" class="sm_account_link border_radius mb-0 text-white" id="google_link"><img src="/assets/images/google_icon.png" class="mr-4" width="24px" height="25px" alt="Google"/> Google</a>
                         </div>
+                        @if(Session::has('socialite_login_error'))
+                            <div class="error mt-3 text-danger">{{Session::get('socialite_login_error')}}</div>
+                        @endif
                     </div>
                 </div>
                 <div class="form_wrapper register_container" data-type="register">
