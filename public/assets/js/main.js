@@ -16,7 +16,7 @@ $(document).ready(function(){
        var form_type = $(this).data('type');
        $('.form-group input').val("");
        $('.form_switch button').removeClass('active');
-       $('.form_wrapper.active').removeClass("active");
+       $('.form_wrapper').removeClass("active");
        $(this).toggleClass('active');
        $(this).parents('.form_container').find('.form_wrapper[data-type='+form_type+']').toggleClass("active");
     });
