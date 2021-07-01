@@ -175,13 +175,16 @@ input{
     font-size: 20px;
     color: #ACACAC;
 }
-.form-group .login_btn{
+.form-group .login_btn, .form-group .register-btn{
     font-family: 'MontserratBold', Arial, sans-serif;
     font-size: 20px;
     background-color: #ED6257;
     display: flex;
     padding: 15px 35px;
     text-decoration: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
 .form-group .right_arrow{
     font-size: 20px;
@@ -256,10 +259,12 @@ input{
 .form-group.company{
     display: none;
     visibility: hidden;
+    opacity: 0;
 }
 .form-group.company.active{
     display: block;
     visibility: visible;
+    opacity: 1;
 }
 .tooltip-inner{
     bottom: -310px;
@@ -277,4 +282,12 @@ input{
     font-family: 'MontserratMedium', Arial, sans-serif;
     font-size: 18px;
     color: #6A7774;
+}
+.alert-success{
+    position: absolute;
+    left: 50%;
+    z-index: 5;
+    width: 350px;
+    top: 10%;
+    transform: translate(-50%,-10%);
 }
