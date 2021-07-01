@@ -18,11 +18,12 @@
                     <img src="/assets/images/close_icon.png" alt="close icon"/>
                 </button>
                 <div class="form_switch border_radius">
-                    <button class="switch_buttons border_radius bg-white" data-type="login">Sign in</button>
-                    <button class="switch_buttons border_radius bg-white active" data-type="register">Sign up</button>
+                    <button class="switch_buttons border_radius bg-white active" data-type="login">Sign in</button>
+                    <button class="switch_buttons border_radius bg-white" data-type="register">Sign up</button>
                 </div>
-                <div class="form_wrapper login_container" data-type="login">
-                    <form id="login_form">
+                <div class="form_wrapper login_container active" data-type="login">
+                    <form id="login_form" method="post" action="/login">
+                        {{ csrf_field() }}
                         <div class="form-group">
                             <input type="email" class="form-control border_radius" placeholder="Email address" id="login_email">
                         </div>
@@ -34,7 +35,7 @@
                             <a href="#" class="border_radius"><ins>I forgot my password</ins></a>
                         </div>
                         <div class="form-group">
-                            <a href="#" class="login_btn border_radius text-white">Sign in</a>
+                            <button class="login_btn btn-block border_radius text-white">Sign in</button>
                             <i class="bi bi-arrow-right-short right_arrow"></i>
                         </div>
                     </form>
@@ -46,14 +47,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="form_wrapper register_container active" data-type="register">
-                    <form id="register_form">
+                <div class="form_wrapper register_container" data-type="register">
+                    <form id="register_form" method="post" action="/register">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="formID" value="2">
                         <div class="user_type position-relative mb-4">
                             <h2 class="mb-3">What type of user are you?</h2>
                             <div class="wrapper d-flex flex-row">
                                 <div class="col custom-control custom-radio mr-0 pl-0">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input active" id="public" name="public" value="1" checked="checked">
+                                        <input type="radio" class="custom-control-input active" id="public" name="user_type_id" value="1" checked="checked">
                                         <label class="custom-control-label" for="public">Public</label>
                                         <a href="#" class="d-flex mb-0 mt-1 details">
                                             <span class="text-white d-inline-block align-middle mr-1">?</span>More details
@@ -62,7 +65,7 @@
                                 </div>
                                 <div class="col custom-control custom-radio mr-0 pl-0">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="service_provider" name="service_provider" value="2">
+                                        <input type="radio" class="custom-control-input" id="service_provider" name="user_type_id" value="2">
                                         <label class="custom-control-label" for="service_provider">Service Provider</label>
                                         <a href="#" class="d-flex mb-0 mt-1 details">
                                             <span class="text-white d-inline-block align-middle mr-1">?</span>More details
@@ -71,7 +74,7 @@
                                 </div>
                                 <div class="col custom-control custom-radio mr-0 pl-0">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="funder" name="funder" value="3">
+                                        <input type="radio" class="custom-control-input" id="funder" name="user_type_id" value="3">
                                         <label class="custom-control-label" for="funder">Funder</label>
                                         <a href="#" class="d-flex mb-0 mt-1 details">
                                             <span class="text-white d-inline-block align-middle mr-1">?</span>More details
@@ -81,31 +84,49 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control border_radius" placeholder="Name" id="name">
+                            <input type="text" class="form-control border_radius @if($errors->has('name')) border-danger @endif" placeholder="Name" id="name" name="name" required>
+                            @if($errors->has('name'))
+                                <div class="error mt-1 text-danger">{{ $errors->first('name') }}</div>
+                            @endif
                         </div>
                         <div class="form-group company">
-                            <input type="text" class="form-control border_radius" placeholder="Company Name" id="company_name">
+                            <input type="text" class="form-control border_radius @if($errors->has('company_name')) border-danger @endif" placeholder="Company Name" id="company_name" name="company_name">
+                            @if($errors->has('company_name'))
+                                <div class="error mt-1 text-danger">{{ $errors->first('company_name') }}</div>
+                            @endif
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control border_radius" placeholder="Email address" id="register_email">
+                            <input type="email" class="form-control border_radius @if($errors->has('email')) border-danger @endif" placeholder="Email address" id="register_email" name="email" required>
+                            @if($errors->has('email'))
+                                <div class="error mt-1 text-danger">{{ $errors->first('email') }}</div>
+                            @endif
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control border_radius" placeholder="Phone number" id="phone_number">
+                            <input type="text" class="form-control border_radius @if($errors->has('phone_number')) border-danger @endif" placeholder="Phone number" id="phone_number" name="phone_number" required>
+                            @if($errors->has('phone_number'))
+                                <div class="error mt-1 text-danger">{{ $errors->first('phone_number') }}</div>
+                            @endif
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control border_radius" placeholder="Password" id="register_password">
+                            <input type="password" class="form-control border_radius @if($errors->has('password')) border-danger @endif" placeholder="Password" id="register_password" name="password" required>
                             <i class="bi bi-eye-slash-fill toggle_password"></i>
+                            @if($errors->has('password'))
+                                <div class="error mt-1 text-danger">{{ $errors->first('password') }}</div>
+                            @endif
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control border_radius" placeholder="Confirm Password" id="confirm_password">
+                            <input type="password" class="form-control border_radius @if($errors->has('confirm_password')) border-danger @endif" placeholder="Confirm Password" id="confirm_password" name="confirm_password" required>
                             <i class="bi bi-eye-slash-fill toggle_password"></i>
+                            @if($errors->has('confirm_password'))
+                                <div class="error mt-1 text-danger">{{ $errors->first('confirm_password') }}</div>
+                            @endif
                         </div>
                         <div class="form-group custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input ml-0" id="terms_and_confitions" name="terms_and_confitions" required>
                             <label class="custom-control-label mb-0 ml-1 terms_conditions" for="terms_and_confitions">I have read and accept the <a href="#" class="text-decoration-none"> terms & conditions</a></label>
                         </div>
                         <div class="form-group mb-0">
-                            <a href="#" class="login_btn border_radius text-white">Sign in</a>
+                            <button class="register-btn btn-block border_radius text-white">Create my account</button>
                             <i class="bi bi-arrow-right-short right_arrow"></i>
                         </div>
                     </form>
