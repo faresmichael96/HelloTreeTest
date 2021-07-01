@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('/assets/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url('/assets/css/bootstrap-icons.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url('/assets/css/main.css') }}" />
+    <script type="text/javascript" src="{{url('/assets/js/jquery-3.3.1.min.js')}}"></script>
 </head>
 <body>
 
@@ -23,7 +24,6 @@
     @yield('content')
 </div>
 
-<script type="text/javascript" src="{{url('/assets/js/jquery-3.3.1.min.js')}}"></script>
 <script type="text/javascript" src="{{url('/assets/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{url('/assets/js/bootstrap.bundle.min.js')}}"></script>
 <script type="text/javascript" src="{{url('/assets/js/main.js')}}"></script>
