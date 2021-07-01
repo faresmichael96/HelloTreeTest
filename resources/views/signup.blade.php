@@ -25,12 +25,15 @@
                     <form id="login_form" method="post" action="/login">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <input type="email" class="form-control border_radius" placeholder="Email address" id="login_email">
+                            <input type="email" class="form-control border_radius" placeholder="Email address" id="login_email" name="email">
                         </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control border_radius" placeholder="Password" id="login_password">
+                        <div class="form-group mb-3">
+                            <input type="password" class="form-control border_radius" placeholder="Password" id="login_password" name="password">
                             <i class="bi bi-eye-slash-fill toggle_password"></i>
                         </div>
+                        @if(Session::has('errors'))
+                            <div class="error mb-2 text-danger">{{Session::get('errors')->first()}}</div>
+                        @endif
                         <div class="form-group forget_password">
                             <a href="#" class="border_radius"><ins>I forgot my password</ins></a>
                         </div>
@@ -50,7 +53,6 @@
                 <div class="form_wrapper register_container" data-type="register">
                     <form id="register_form" method="post" action="/register">
                         {{ csrf_field() }}
-                        <input type="hidden" name="formID" value="2">
                         <div class="user_type position-relative mb-4">
                             <h2 class="mb-3">What type of user are you?</h2>
                             <div class="wrapper d-flex flex-row">
@@ -134,9 +136,15 @@
             </div>
         </div>
     </div>
-@endsection
 
-{{--<div class="tooltip-inner position-absolute tooltip_text">
-                                        <h3 class="display-3 mb-3">Public user</h3>
-                                        <p class="mb-0">You are a public user when you are an individual who is looking for a quality service provider. Create your account, submit your request and just for the magic to happen.</p>
-                                    </div>--}}
+    @if(Session::has('register'))
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.form_switch button[data-type="login"]').removeClass('active');
+                $('.form_wrapper[data-type="login"]').removeClass("active");
+                $('.form_switch button[data-type=register]').addClass('active');
+                $('.form_wrapper[data-type=register]').addClass('active');
+            });
+        </script>
+    @endif
+@endsection
