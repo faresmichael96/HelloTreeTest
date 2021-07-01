@@ -31,9 +31,15 @@ return [
     ],
 
     'facebook' => [
-        'client_id'     => env('FB_ID', '544568046903844'),
-        'client_secret' => env('FB_SECRET', '112ca499e50fa5dfe96adcd9cd2575c2'),
-        'redirect'      => env('APP_URL', 'http://hellotreetest.devs/') . '/oauth/facebook/callback',
+        'client_id'     => env('FB_ID', '555809655435628'),
+        'client_secret' => env('FB_SECRET', '9bcd6fc087b48ee2aaef1d9731668e4d'),
+        'redirect'      => env('APP_URL', 'http://localhost/oauth/facebook/callback'),
+    ],
+
+    'google' => [
+        'client_id'     => env('GL_ID', '299546397457-puapvpai436o3c9kc88uaf5hubouin5o.apps.googleusercontent.com'),
+        'client_secret' => env('GL_SECRET', 'wL_ZV6RTHeW6IMVyQ1h6w5pA'),
+        'redirect'      => env('APP_URL', 'http://localhost/oauth/google/callback'),
     ],
 
 ];
