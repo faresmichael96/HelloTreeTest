@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('signup');
-});
+})->name('signup');
 
 
 Route::get('/welcome', function () {
@@ -32,3 +32,7 @@ Route::post('/register', 'App\Http\Controllers\RegistrationController@store');
 Route::post('/login', 'App\Http\Controllers\SessionsController@store');
 
 Route::get('/logout', 'App\Http\Controllers\SessionsController@destroy');
+
+Route::get('oauth/{driver}', 'App\Http\Controllers\SocialiteLoginController@redirectToProvider')->name('social.oauth');
+
+Route::get('oauth/{driver}/callback', 'App\Http\Controllers\SocialiteLoginController@handleProviderCallback')->name('social.callback');
