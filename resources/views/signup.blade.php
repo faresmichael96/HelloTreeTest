@@ -31,8 +31,8 @@
                             <input type="password" class="form-control border_radius" placeholder="Password" id="login_password" name="password">
                             <i class="bi bi-eye-slash-fill toggle_password"></i>
                         </div>
-                        @if(Session::has('errors'))
-                            <div class="error mb-2 text-danger">{{Session::get('errors')->first()}}</div>
+                        @if(Session::has('login_error'))
+                            <div class="error mb-2 text-danger">{{Session::get('login_error')}}</div>
                         @endif
                         <div class="form-group forget_password">
                             <a href="#" class="border_radius"><ins>I forgot my password</ins></a>
