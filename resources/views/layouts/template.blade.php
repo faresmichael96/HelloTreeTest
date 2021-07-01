@@ -19,6 +19,7 @@
 <body>
 
 <div class="page_wrapper">
+    @include('components.flash-message')
     @yield('content')
 </div>
 
