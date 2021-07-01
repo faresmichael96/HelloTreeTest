@@ -35,6 +35,7 @@ body{
 }
 .description h1{
     font-size: 60px;
+    max-width: 550px;
 }
 .description p{
     font-size: 30px;
@@ -290,4 +291,33 @@ input{
     width: 350px;
     top: 10%;
     transform: translate(-50%,-10%);
+}
+
+@media only screen and (max-width: 992px){
+    .pl-5{
+        padding-left: 20px !important;
+    }
+    .description h1{
+        max-width: 100%;
+        font-size: 30px;
+        margin-top: 0 !important;
+    }
+    .description p{
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+    .form_padding{
+        padding: 30px 20px !important;
+        border-radius: 20px !important;
+        width: 97%;
+        margin: 30px auto;
+    }
+    button.close{
+        width: 50px;
+        height: 50px;
+    }
+    .form_switch .switch_buttons{
+        padding: 10px 30px;
+        font-size: 20px;
+    }
 }
