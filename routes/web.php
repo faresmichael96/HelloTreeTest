@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,17 @@ Route::get('/', function () {
     return view('signup');
 });
 
-Route::get('/welcome', function (){
-   return view('welcome');
+
+Route::get('/welcome', function () {
+    if(Auth::check()){
+        return view('welcome');
+    }else{
+        return redirect()->intended('/');
+    }
 });
 
 Route::post('/register', 'App\Http\Controllers\RegistrationController@store');
+
+Route::post('/login', 'App\Http\Controllers\SessionsController@store');
+
+Route::get('/logout', 'App\Http\Controllers\SessionsController@destroy');
