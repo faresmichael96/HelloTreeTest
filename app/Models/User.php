@@ -17,9 +17,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'user_type_id',
         'name',
         'email',
+        'company_name',
+        'phone_number',
         'password',
+        'confirm_password',
     ];
 
     /**
@@ -29,6 +33,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
+        'confirm_password',
         'remember_token',
     ];
 
@@ -40,4 +45,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Add a mutator to ensure hashed passwords
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function setConfirmPasswordAttribute($confirm_password){
+        $this->attributes['confirm_password'] = bcrypt($confirm_password);
+    }
 }
