@@ -24,6 +24,10 @@ class User extends Authenticatable
         'phone_number',
         'password',
         'confirm_password',
+        'avatar',
+        'provider',
+        'provider_id',
+        'access_token'
     ];
 
     /**
@@ -35,6 +39,7 @@ class User extends Authenticatable
         'password',
         'confirm_password',
         'remember_token',
+        'access_token'
     ];
 
     /**
