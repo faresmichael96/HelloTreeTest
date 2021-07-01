@@ -30,4 +30,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'facebook' => [
+        'client_id'     => env('FB_ID', '544568046903844'),
+        'client_secret' => env('FB_SECRET', '112ca499e50fa5dfe96adcd9cd2575c2'),
+        'redirect'      => env('APP_URL', 'http://hellotreetest.devs/') . '/oauth/facebook/callback',
+    ],
+
 ];
