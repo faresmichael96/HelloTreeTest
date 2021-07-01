@@ -29,8 +29,10 @@ $(document).ready(function(){
     $('input[type=radio]').on('click', function() {
         if($('#service_provider').prop('checked')){
             $('.form-group.company').addClass('active');
+            $('.form-group.company input[name=company_name]').prop('required',true);
         }else{
             $('.form-group.company').removeClass('active');
+            $('.form-group.company input[name=company_name]').prop('required',false);
         }
     });
 
